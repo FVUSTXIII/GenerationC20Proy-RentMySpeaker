@@ -1,1 +1,140 @@
 				Manual de Estandarización
+
+Frontedn - Client
+
+(Creación de registros)
+
+Formulario de registrar publicación:
+
+   Input:
+
+	Título de publicación
+
+		tipo: text
+		name: post_title
+
+	Tipo de artículo:
+
+		tipo: select
+		opciones: 
+
+			- Equipo de audio
+			- Percusiones
+			- Intrumentos de cuerda
+			- Electrónicos
+	
+		name: article_type
+	
+	Descripción:
+
+		tipo: text-box
+		name: article_desc
+
+	Imágenes:
+
+		tipo: file
+		name: image_input
+
+	Precio por día:
+
+		tipo: text
+		name: price_per_day
+
+	Enviar
+
+		tipo: submit
+		name: pos_sub_but
+
+Formulario de registro
+
+   Input:
+	
+	Nombre:
+
+		tipo: text
+		name: user_pile_name
+
+	Apellido:
+
+		tipo: text
+		name: user_last_name
+
+	Correo:
+
+		tipo: text
+		name: user_email_add
+
+	Contraseña:
+
+		tipo: password
+		name: user_pass
+
+	perfil:
+		
+		tipo: file
+		name: user_prof_pic
+
+	Enviar:
+
+		tipo: submit
+		name: reg_sub_but
+
+Formulario de solicitud de renta
+
+   Inputs:
+
+	Dias de renta:
+		
+		tipo: text
+		name: rent_days	
+
+	Precio total:
+		
+		tipo: text
+		name: total_price
+
+	Enviar Solicitud:
+	
+		tipo: submit
+		name: reqit_sub_but
+
+(Consultas)
+
+
+Formulario de busqueda de instrumentos
+
+   Input:
+
+	equipo de audio:
+
+		tipo: radio
+		name: audio_equp
+
+	Percusiones:
+	
+		tipo: radio
+		name: perc
+	
+	Instrumentos de cuerdas:
+
+		tipo: radio
+		name: strings
+
+	Electrónicos:
+
+		tipo: radio
+		name: elec
+
+Formulario de login
+
+	Correo:
+		
+		tipo: text
+		name: user_email_add
+
+	Contraseña: 
+
+		tipo: password
+		name: user_pass
+
+
