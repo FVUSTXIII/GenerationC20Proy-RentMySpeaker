@@ -3,11 +3,48 @@
     margin: 0px;
 }
 
-h1{
-    color: aliceblue;
+body{
+	background: #c71ac7;
+	margin: 0px 10px;
 }
 
-.header-area{
-    background-color: darkorchid;
-    text-align: center;
+h1{
+    color: white;
 }
+
+#header-area{
+   position: relative;
+   width: 100%;
+}
+
+#header-button-container{
+
+	margin-top: 5px;
+	display : inline-block;
+
+}
+
+
+.header-button{
+	display: block;
+	font-size: 20px;
+	width: 120px;
+	height: 38px;
+	margin-top: 5px;
+	color: white;
+	border-color: transparent;
+	background: #3B333B;
+}
+
+
+
+#header-title-div{ 
+ position: absolute;
+ right: 50%;
+ top: 50%;
+ transform: translate(50%, -50%);
+ display: inline-block;
+
+
+}
+
