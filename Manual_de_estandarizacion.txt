@@ -125,6 +125,11 @@ Formulario de busqueda de instrumentos
 		tipo: radio
 		name: elec
 
+	¿Qué tienes para mí?:
+		
+		tipo: submit
+		name: wyg4m__sub_but
+
 Formulario de login
 
 	Correo:
@@ -137,4 +142,8 @@ Formulario de login
 		tipo: password
 		name: user_pass
 
+	Entrar: 
+
+		tipo: submit
+		name: lgin__sub_but
 
