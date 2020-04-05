@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <title>Nueva publicación</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <form action="">
+
+                <label for="txtTitulo">Título de la publicación: </label>
+                <input type="text" name="txtTitulo"><br>
+
+                <label for="txtTipo">Tipo de artículo: </label>
+                <select name="txtArticulo" id="txtArticulo">
+                    <option value="1">Instrumento</option>
+                    <option value="2">Equipo de audio</option>
+                    <option value="3">Percuciones</option>
+                </select><br>
+
+                <label for="txtDescripcion">Descripción: </label>
+                <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="10"></textarea>
+
+                <label for="txtImg">Imágenes: </label>
+                <input type="file" name="txtImg" multiple="multiple">
+
+                <label for="txtPrecio">Precio por día: </label>
+                <input type="text"><br>
+
+                <input type="submit" value="Envíar">
+            </form>
+        </div>
+    </div>
+        
+</body>
+</html>
