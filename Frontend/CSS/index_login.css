@@ -17,34 +17,41 @@ body{
    height: 111px;
    width: 100%;
    position: relative;
-   padding: 15px 20px;
+   font-family: 'Lobster', cursive;
+  
 }
 
-#header-button-container{
-	display : inline-block;
+#header-area > *{
+	position: absolute;
 	
 }
 
-.header-button{
-	display: block;
-	box-sizing: border-box;
-	font-size: 20px;
-	width: 120px;
-	height: 38px;
-	color: white;
-	border-color: transparent;
-	border-radius: 3px;
-	background: #3B333B;
+ #header-area > h2, i{
+ 	top: 35%;
+	display: inline;
+	font-size: 36px;
 }
 
-#log-in-button{
-	margin-top: 5px;
+#arrendador{
+	left: 4%;
+}
+
+#publicar{
+	left: 21%;
+}
+
+#arrendatario{
+	right: 13.5%;
+}
+
+#header-area > i {
+	right: 5%;
 }
 
 #header-logo-div{ 
-	 position: absolute;
-	 right: 50%;
 	 top: 50%;
+	 transform: translateY(-50%);
+	 right: 50%;
 	 transform: translate(50%, -50%);
 	 display: inline-block;
 
@@ -57,10 +64,7 @@ body{
 
 #header-title{
 	display: inline;
-	font-family: 'Lobster', cursive;
  	font-size: 65px;
-
-
 }
 
 #search-form-area{

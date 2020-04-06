@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/publicacion_machote.css">
+    <script src="https://kit.fontawesome.com/edb0fd4394.js" crossorigin="anonymous"></script>
+    <title>Rent My Speaker</title>
+</head>
+<body>
+    <!--HEADER-->
+    <header id ="header-area">
+        <h2 id="arrendador">Arrendador</h2>
+        <h2 id="publicar">Publicar</h2>
+        <!--LOGO AREA-->
+        <div id="header-logo-div">
+            <i class="fas fa-compact-disc"></i>
+            <h1 id="header-title">Rent My Speaker</h1>
+        </div>
+        <h2 id="arrendatario">Arrendatario</h2>
+        <i class="fas fa-door-open"></i>
+    </header>    
+    
+    <main>
+        <h1>Titulo de la publicación</h1>
+        <h2 id="precio-x-dia">Precio por día</h2>
+        <section id="img-container">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+            <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
+        </section>
+        <section id="descripcion-area">
+            <h2>Descripcion</h2>
+            <div id="descripcion">
+                <p>
+                    Esta ocarina de cerámica 12 orificios de alta calidad es hecha a mano y inspirado en la leyenda de Zelda, como si la Trifuerza Triángulo de oro detalle en cromo no lo hacen evidente. Tiene un rango de pitch de A4 a F6 con un sonido nítido y claro, tono y centrado.
+
+                    En consonancia con el tema, esta alta calidad Zelda réplica viene completa con la Zelda Songbook uno de volumen y un folleto de instrucciones en línea.
+
+                    No pierda su dinero en la mala calidad imitaciones que son popping hasta en el mercado. Nuestra Ocarina está afinado con precisión por músicos profesionales y hecho a mano para una apariencia y sonido como ningún otro.<br><br>
+
+                    Características: - -- inspirada en la Legend of Zelda - -- 12 orificios Ocarina - -- Rango de Pitch de A4 a F6 - -- Fabricado en cerámica de alta calidad
+                    Banda de cromo - -- con Triforce Triángulo de oro detalle - -- Tuned por músicos profesionales para el mejor sonido - -- Incluye folleto de instrucciones en línea y uno de volumen Zelda Songbook
+                    
+                </p>
+            </div>
+        </section>
+
+        <form id="precio-total-form" action="" method="post">
+            <div id="precio-total-calc">
+                <div class="precio-total-div">
+                    <label class="label-precio-total" for="dias_renta">
+                      Dias de renta  
+                    </label>
+                    <input type="number" id="dias_renta" name="dias_renta" min="1" max="30">
+                </div>
+                <div class="precio-total-div">
+                    <label class="label-precio-total" for="precio_total">
+                        Precio total
+                    </label>     
+                        <input type="text" id="precio_total" name="precio_total" readonly>    
+                </div>
+            </div>
+
+            <input type="submit" value="Enviar Solicitud">
+        </form>
+    </main>
+        
+</body>
+</html>
