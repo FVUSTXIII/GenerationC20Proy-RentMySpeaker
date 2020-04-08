@@ -9,33 +9,46 @@
     <title>Nueva publicación</title>
 </head>
 <body>
-    <div class="container">
-        <div class="form-box">
-            <form action="">
+        <legend>Publicar</legend>
+        <div id="form-box">
+            <form action="" method="">
 
-                <label for="txtTitulo">Título de la publicación: </label>
-                <input type="text" name="txtTitulo"><br>
+                <div>
+                    <label for="titulo" class="left">Título de la publicación: </label>
+                    <input type="text" name="titulo" id="titulo" class="right">
+                </div>
+                
 
-                <label for="txtTipo">Tipo de artículo: </label>
-                <select name="txtArticulo" id="txtArticulo">
-                    <option value="1">Instrumento</option>
-                    <option value="2">Equipo de audio</option>
-                    <option value="3">Percuciones</option>
-                </select><br>
+                <div>
+                    <label for="tipo_articulo" class="left">Tipo de artículo: </label>
+                    <select name="tipo_articulo" id="tipo_articulo" class="rigth">
+                        <option value="equipo_de_sonido">Equipo de sonido</option>
+                        <option value="instrumento">Instrumento de cuerda</option>
+                        <option value="percusiones">Percusiones</option>
+                        <option value="electronico">Electrónico</option>
+                    </select>
+                </div>
+               
 
-                <label for="txtDescripcion">Descripción: </label>
-                <textarea name="txtDescripcion" id="txtDescripcion" cols="30" rows="10"></textarea>
+                <div>
+                    <label for="descripcion" class="left">Descripción: </label>
+                    <textarea name="descripcion" id="descripcion" class="right" cols="30" rows="10"></textarea>
+                </div>
 
-                <label for="txtImg">Imágenes: </label>
-                <input type="file" name="txtImg" multiple="multiple">
+                <div>
+                    <label for="img-file" class="left">Imágenes: </label>
+                    <input type="file" name="img" multiple="multiple" id="img-file" class="right">
+                </div>
 
-                <label for="txtPrecio">Precio por día: </label>
-                <input type="text"><br>
+                <div>
+                    <label for="precio-x-dia" class="left">Precio por día: </label>
+                    <input type="number" name="precio-x-dia" min="1" id="precio-x-dia" class="right">
+                </div>
 
                 <input type="submit" value="Envíar">
             </form>
-        </div>
-    </div>
+        
+         </div>
         
 </body>
 </html>
