@@ -1,0 +1,36 @@
+body{
+	background: #C71AC7;
+}
+.lo{
+	width: 100vh;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Baloo 2', cursive;
+}
+.lo form{
+	background: #3B333B;
+	padding: 70px;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1rem;
+	border-radius: 3px;
+}
+.lo button{
+	grid-column:1 /span 2;
+	margin: 2rem auto 0;
+	padding: .5rem 2rem;
+	border:2px solid white;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+}
+.lo button:hover{
+	background: none;
+	color: white;
+}
