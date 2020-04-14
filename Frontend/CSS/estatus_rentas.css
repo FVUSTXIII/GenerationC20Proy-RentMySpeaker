@@ -55,8 +55,7 @@ body {
 
 #arrendador{
 	left: 4%;
-	color: #C7C71A;
-	text-shadow: 0 0 30px #C7C71A, 0px 1px 0 black;
+
 }
 
 #publicar{
@@ -65,6 +64,8 @@ body {
 
 #arrendatario{
 	right: 13.5%;
+	color: #C7C71A;
+	text-shadow: 0 0 30px #C7C71A, 0px 1px 0 black;
 }
 
 #header-area > i {
@@ -111,7 +112,7 @@ body {
 
 }
 
-#sidebar > ul > li:nth-child(2){
+#sidebar > ul > li{
 	color: var(--postcolor);
 }
 
@@ -223,10 +224,22 @@ body {
 }
 
 
-	
-.pagefooter {
-		background-color: var(--footercolor);
-	}
+.sol_lower_body > legend {
+	position: absolute;
+	right: 25%;
+	top: 30%;
+	display: inline-block;
+	padding: .3em .7em;
+	font-weight: 800;
+	border: 3px dashed #208fff;
+	border-radius: 2px;
+	background: #D1E8FF;
+
+
+}
+
+
+
 	
 	
 	
