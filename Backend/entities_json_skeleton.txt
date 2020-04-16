@@ -1,0 +1,31 @@
+usuario
+/create
+{
+	"nombre":"",
+	"apellidos":"",
+	"telefono":"1-222-333",
+	"correo":"",
+	"contra":"",
+	"url_img":""
+}
+
+pubilcacion
+/{id}/createpublicacion
+{
+	"titulo_pub":"",
+	"tipo_articulo":,
+	"precio_dia":,
+	"descripcion":"",
+	"disponible":
+}
+/{id}/publicacion/{id_publicacion}/submitimg
+imagen_publicacion
+{
+	"url_img":""
+}
+solicitud
+{	
+	"num_dias":,
+}
+/{id}/publicacion/{id_publicacion}/solicitar
+3, 7, 12

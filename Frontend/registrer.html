@@ -7,29 +7,58 @@
 	</head>
 	<body>
 		<div class="reg">
-			<h2>Regístrate</h2>
-			<form action="">
+			<h2>Regístrate.</h2>
+			<!--<form target="_blank" enctype="multipart/form-data" action="http://localhost:8080/v1/usuario/create" method="post" name="registerform">
+			-->
+				<form target="_blank" enctype="multipart/form-data" name="registerform">
 				<label for="nombre">Nombre</label>
 				<input type="text" name="nombre" placeholder="&#128100;">
-				<label for="apellido">Apellido</label>
-				<input type="text" name="apellido" placeholder="&#128100;">
+				<label for="apellidos">Apellido</label>
+				<input type="text" name="apellidos" placeholder="&#128100;">
 				<label for="correo">Correo</label>
 				<input type="text" name="correo" placeholder="&#128231;">
 				<label for="password">Contraseña</label>
-				<input type="password" name="password" placeholder="&#128273;">
+				<input type="password" name="contra" placeholder="&#128273;">
 				<label for="numero">Numero</label>
-				<input type="text" name="numero" placeholder="&#128222;">
+				<input type="text" name="numero_telefonico" placeholder="&#128222;">
 				<label for="perfil">Perfil</label>
-				<input type="text" list="items" placeholder="&#128100;">
- 					 <!-- Lista de opciones -->
-					<datalist id="items">
-   					 	<option value="1">Opción 1</option>
-   						<option value="2">Opción 2</option>
-  					 	<option value="3">Opción 3</option>
-  					</datalist>
-
-				<button type="submit">Enviar</button>
+				<!--<input type="file" name="url_imagen" list="items" placeholder="&#128100;">-->
+				<button id="botonenviar">Enviar</button>
+				
 			</form>
+
+			<script>
+				var a = document.getElementById("botonenviar");
+				a.addEventListener("click", sendInfo);
+
+				function sendInfo() {
+					console.log("hola?");
+					var f = {}
+					/*f.append("nombre", document.getElementsByName("nombre")[0].value);*/
+					f.nombre = document.getElementsByName("nombre")[0].value;
+					f.apellidos = document.getElementsByName("apellidos")[0].value;
+					f.numero_telefonico = document.getElementsByName("numero_telefonico")[0].value;
+					f.correo = document.getElementsByName("correo")[0].value;
+					f.contra = document.getElementsByName("contra")[0].value;
+					f.url_img = "www.url.com/1";
+					console.log(f);
+					var json = JSON.stringify(f);
+					var xhttp = new XMLHttpRequest();
+					xhttp.open("POST", "http://localhost:8080/v1/usuario/test", true);
+					xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+					xhttp.onload = function() {
+
+						var exito = JSON.parse(this.responseText);
+						if(this.readyState == 4 && this.status == 201) {
+							console.table(exito);
+							window.location.href = "index_login.html";
+						}
+					}
+					
+					xhttp.send(json);
+				}
+
+			</script>
 		</div>
 	</body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rentmysimg",
+  "private_key_id": "44dc795712ac049520425b19850d9a22bd903cf3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCninEKdBRScObZ\nRAOCvDlasFM5aUTYUS1OGgmfoY8MCENTxXNDi+724jcrL8B1SxAhXN/660vwsivK\nOm4zY4gEd90A2s+mXflv8A+4JILG1jqridDul+4QYQ75Dw7m7LBa9RPmgL8LLVTx\n+SH/1SSOoEHYsUSuGoaZn/EvaeOmGxdERsmXnTnp2G07aW4ki8K9ovaoYidt/Iho\nfL9j95dgDLEaxZqaeC7CMmFdVW1GG90zZjBVB26ogmOz7Pt3eBVomjrieX14eJwL\nyjJZvcdeYhiKG2pRsisJWDEP39UgvDkCWGyeMkYj9ayBaSq2KYVQ9mOKYaKyZk8M\njpwO42THAgMBAAECggEAGyJKyHygRfHPEWT4hJXjXBKuh9/KrJYJFlsVL+tEdZho\n/wo9brUdEJL2iGIFc3mitSSLieHNvL++Y9QuwNff0YlwG5FUjAcwPLbOdO5E19se\nSWXalqm4fqKZgDC2IyQ2M6T5gh1b032WAlJs9TgZ4ZeG0odzLhdRsVO8BgfKPL5n\nYkEYvlgierd1xfOuk62iRwFtm0nuqe4wOS5775HoOxxOpm+6Ns5T8k9XisWSGLOJ\n2naFt7itNb+/jMLMTSlN21QW/17qHFB6aA1tljCMohwThvAZ3zWqnNk21rVo/zr7\nxfMn/hBBEF+ObrJROYRthk923JASKv4OsespQAu3wQKBgQDRM2rNAyEAC9xxU0xj\nunQgx56E9qYV3HqsoNEtN76mdWH/z/RSWozuIIYQF3hiIyMHnHKlW2AfyVPhCZn4\nzP2DAfL7+zw87rHbS5aoF/boxNkvC3AF2yJ+Y/JRFyajDnmOQ5srTwcED6Vq4qIC\nY8FQMRunVW1WMFWyzYM7oG4FtwKBgQDNBTjq4902kP9lqLGBSemQ9zr8mlmp9MLI\njFH3OvyyR2px8AYvDnY1YGyM2CSbptDU3bUqoz/c7EeDwzTuskExL5EMXNiXbwnJ\nX2QsP/0eHRAuQgsHef9NREx1/oGJLIz6UMg04fOpGdiO1+wPxc0YvhmcCAWloGa5\nF+DmHlwZcQKBgQCDAC6d6Jqum77UHDRWsvhrWnVSj91bDTCojx/Nr/2r4Q+YEFHP\njDJ6H1W0F+5jjdsutfI4x+p+nSTwY4HOghcyBXNyBVYoVdR8HW5fHnqYMkRKKGBi\n2mFUQiQIUXX5X2QRCRbO3PLowR91uit3UZ5JKCdH9r+73BKeIAFQwlqDKwKBgQDL\nnaQppKTOzLLaA/BGt2GA2Al9Vs42PSA2jSXapHrTlJnjDr8VfQdpe5pTR1cUP1io\nEIkdD4UdpIxiED1B00dr0hH8dTmnLGBL3rFeQS7h+XtYdb7+betgkbRee6Wq1tQs\nxo4P91hHWaP6Off4sjo/mI1WqaDyHZvnuA9kfEJ8AQKBgQCsqVSUi49NgXqICsBF\n5MVo6WMFf/mtNNGw2cvn9pYANduZGCPUYIDxMCVxsJREEmqkY6cb30ubEa/Kotov\nitWkKVWoVLi4x0SZgb1oeohodXbZTMjtEu3onx+68LaBSCmQxJ+ziTd48EmMNi+J\nSPJnd1Se6TMS7yyiOryHQ5T7Bw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "rentmyspeakerserviceaccnt@rentmysimg.iam.gserviceaccount.com",
+  "client_id": "108894753162241748840",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rentmyspeakerserviceaccnt%40rentmysimg.iam.gserviceaccount.com"
+}
