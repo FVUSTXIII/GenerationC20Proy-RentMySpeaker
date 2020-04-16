@@ -92,16 +92,18 @@ body {
 /*SIDEBAR*/
 #sidebar{
 		display: inline-block;
-		height: 110%;
-		width: 20%;
-		padding: 2em 2em;
+		height: 130%;
+		width: 22%;
+		padding: 2em 2.5em;
 		text-align: left;
 		vertical-align: top;
+		border-radius: 2px;
 		background-color: var(--sidebarcolor);
 	}
 
 #sidebar > ul {
 	margin-top: 16em;
+
 }
 
 
@@ -118,9 +120,8 @@ body {
 
 .administracion_renta {
 	display: inline-block;
-	width: 79%;
+	width: 77%;
 	height: 100%;
-	overflow: auto;
 	text-align: center;
 	
 
