@@ -25,6 +25,11 @@ body{
 	padding: .55em 0;
 }
 
+#header-button-container > a {
+	color: inherit;
+	text-decoration: none;
+}
+
 .header-button{
 	display: block;
 	box-sizing: border-box;
@@ -35,6 +40,11 @@ body{
 	box-shadow: 0 0 .5px #8e7c8e;
 	border-radius: 3px;
 	background: #3B333B;
+}
+
+#header-button-container > a {
+	color: inherit;
+	text-decoration: none;
 }
 
 #log-in-button{
