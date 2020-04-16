@@ -8,7 +8,7 @@
 	<body>
 		<div class="reg">
 			<h2>Regístrate</h2>
-			<form action="">
+			<form method="post">
 				<label for="nombre">Nombre</label>
 				<input type="text" name="nombre" placeholder="&#128100;">
 				<label for="apellido">Apellido</label>
@@ -20,13 +20,8 @@
 				<label for="numero">Numero</label>
 				<input type="text" name="numero" placeholder="&#128222;">
 				<label for="perfil">Perfil</label>
-				<input type="text" list="items" placeholder="&#128100;">
- 					 <!-- Lista de opciones -->
-					<datalist id="items">
-   					 	<option value="1">Opción 1</option>
-   						<option value="2">Opción 2</option>
-  					 	<option value="3">Opción 3</option>
-  					</datalist>
+				<input type="text" name="perfil" placeholder="&#128100;">
+ 					
 
 				<button type="submit">Enviar</button>
 			</form>
