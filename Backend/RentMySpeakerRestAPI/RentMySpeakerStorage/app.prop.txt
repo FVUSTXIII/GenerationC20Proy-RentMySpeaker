@@ -1,0 +1,3 @@
+spring.cloud.gcp.core.enabled=true
+spring.cloud.gcp.project-id=rentmysimg 
+spring.cloud.gcp.credentials.location=file: ../RentMySepakerStorage/rentmysimg-44dc795712ac.json

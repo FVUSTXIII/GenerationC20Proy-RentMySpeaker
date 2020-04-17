@@ -20,59 +20,78 @@ public class Solicitud {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private Integer id_solicitud;
+	private Integer id_publicacion;
+	
+	private Integer id_usuario;
 	
 	private Integer num_dias;
-	@Enumerated(EnumType.STRING)
+	
+	@Enumerated (EnumType.STRING)
 	private EstadoSolicitud estado_solicitud;
-	/*
-	 * 
-	 * 1 - Solamente si el estado de la solicitud es "Pendiente" se mostrará la solicitud en el menú de las solicitudes 
-	 * 2 - Si se acepta la solicitud esta genera una renta
-	 * 
-	 * */
-	@Temporal(TemporalType.TIMESTAMP)
+	
+	@Temporal (TemporalType.TIMESTAMP)
 	private Date fecha;
+	
+	
 	public Solicitud ()  {}
-	
-	public boolean mostrar () {
-		
-		if(getEstado_solicitud() == estado_solicitud.PENDIENTE) {
-			return true;
-		}
-			return false;
-	}
-	
-	public Integer getId() {
+
+	public Integer getId () {
 		return id;
 	}
-	public void setId(Integer id) {
+	
+	public void setId (Integer id) {
+		
 		this.id = id;
 	}
-	public Integer getId_solicitud() {
-		return id_solicitud;
+	
+	public Integer getId_publicacion () {
+		
+		return id_publicacion;
 	}
-	public void setId_solicitud(Integer id_solicitud) {
-		this.id_solicitud = id_solicitud;
+
+	public void setId_publicacion (Integer id_publicacion) {
+		
+		this.id_publicacion = id_publicacion;
 	}
-	public Integer getNum_dias() {
+	
+	public Integer getId_usuario () {
+		
+		return id_usuario;
+	}
+
+	public void setId_usuario (Integer id_usuario) {
+		
+		this.id_usuario = id_usuario;
+	}
+
+	public Integer getNum_dias () {
+		
 		return num_dias;
 	}
-	public void setNum_dias(Integer num_dias) {
+	
+	public void setNum_dias (Integer num_dias) {
+		
 		this.num_dias = num_dias;
 	}
-	public EstadoSolicitud getEstado_solicitud() {
+	
+	public EstadoSolicitud getEstado_solicitud () {
+		
 		return estado_solicitud;
 	}
-	public void setEstado_solicitud(EstadoSolicitud estado_solicitud) {
+	
+	public void setEstado_solicitud (EstadoSolicitud estado_solicitud) {
+		
 		this.estado_solicitud = estado_solicitud;
 	}
-	public Date getFecha() {
+	
+	public Date getFecha () {
+		
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	
+	public void setFecha (Date fecha) {
+		
 		this.fecha = fecha;
 	}
 	
-
 }

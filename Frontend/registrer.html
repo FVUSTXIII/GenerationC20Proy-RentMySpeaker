@@ -34,8 +34,8 @@
 				a.addEventListener("click", sendInfo);
 
 				function sendInfo() {
-					console.log("hola?");
-					var f = {}
+					
+					var f = {};
 					/*f.append("nombre", document.getElementsByName("nombre")[0].value);*/
 					f.nombre = document.getElementsByName("nombre")[0].value;
 					f.apellidos = document.getElementsByName("apellidos")[0].value;
@@ -43,20 +43,17 @@
 					f.correo = document.getElementsByName("correo")[0].value;
 					f.contra = document.getElementsByName("contra")[0].value;
 					f.url_img = "www.url.com/1";
-					console.log(f);
 					var json = JSON.stringify(f);
 					var xhttp = new XMLHttpRequest();
 					xhttp.open("POST", "http://localhost:8080/v1/usuario/test", true);
 					xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 					xhttp.onload = function() {
-
-						var exito = JSON.parse(this.responseText);
 						if(this.readyState == 4 && this.status == 201) {
-							console.table(exito);
+							var exito = JSON.parse(this.responseText);
+							localStorage.setItem('idUsuario', exito.id);
 							window.location.href = "index_login.html";
 						}
 					}
-					
 					xhttp.send(json);
 				}
 

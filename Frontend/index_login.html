@@ -97,8 +97,7 @@
 
         </div>
     </section>
-    <script>
-        localStorage.setItem('algo', document.getElementsByName("busqueda")[0].value);        
+    <script>       
         var a = document.getElementById("submit");
         a.onclick = function () {
             var opc = document.getElementsByName("busqueda");
@@ -106,13 +105,9 @@
                 if (opc[i].checked) {
 
                     localStorage.setItem('Tipodearticulo', opc[i].value);
-                    console.log(opc[i].value);
-
                 }
             }    
         }
-        
-        
     </script>
 </body>
 </html>

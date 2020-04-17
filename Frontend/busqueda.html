@@ -23,56 +23,75 @@
         <!--SEARCH AREA-->   
     
     <section id="item-area">
-
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
         
     </section>
+    <script>
+        var a = document.getElementById("item-area");
+        window.onload = function() {
+            let usuario = localStorage.getItem('idUsuario');
+            let articleTipe = localStorage.getItem('Tipodearticulo');
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+
+                    var b = JSON.parse(request.responseText); 
+                    crearListaDeElementos (b);
+                    
+                }
+            }
+            request.open('GET', 'http://localhost:8080/v1/usuario/'+usuario+'/publicaciones/type/'+articleTipe, true);
+            request.send();
+            
+        }
+        function crearListaDeElementos (lista) {
+            console.log(lista);
+            for (c in lista) {
+                crearContenedor(lista[c]);
+                console.log(c);
+            }
+
+        }
+
+        function crearContenedor(elemento) {
+            var container = document.createElement ("div");
+            container.setAttribute("class", "item");
+            createImgInsideContainer(container, elemento.imagenes[0].url_img);
+            legendContainer(container, elemento.tipo_articulo, elemento.precio_dia, elemento.titulo_pub);
+            a.appendChild(container);
+        }
+
+        function createImgInsideContainer (e, src) {
+
+            var img_container = document.createElement ("div");
+            var img_el = document.createElement ("img");
+            img_container.setAttribute("class", "item-img-container");
+            img_el.setAttribute("class", "item-img");
+            img_el.setAttribute("src", src);
+            img_container.appendChild(img_el);
+            e.appendChild(img_container);
+
+        }
+
+        function legendContainer(e, tipo, precio, titulo) {
+            
+            var legContainer = document.createElement ("div");
+            var legtype = document.createElement("legend");
+            var legprice = document.createElement("legend");
+            var legtitle = document.createElement("legend");
+            legContainer.setAttribute("class", "item-legends-container");
+            legtype.setAttribute("class", "tipo");
+            legprice.setAttribute("class", "precio-x-dia");
+            legtitle.setAttribute("class", "titulo");
+            legtype.innerHTML = tipo;
+            legprice.innerHTML = "$"+precio + " p/día";
+            legtitle.innerHTML = titulo;
+            legContainer.appendChild(legtype);
+            legContainer.appendChild(legprice);
+            legContainer.appendChild(legtitle);
+            e.appendChild(legContainer);
+        }
+
+    </script>
 </body>
 </html>
+

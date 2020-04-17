@@ -7,6 +7,6 @@ import com.generationc20.RentMySpeakerRestAPI.model.Publicacion;
 
 
 @Repository
-public interface PublicacionRepository  extends JpaRepository<Publicacion, Integer> {
+public interface PublicacionRepository  extends JpaRepository <Publicacion, Integer> {
 
 }

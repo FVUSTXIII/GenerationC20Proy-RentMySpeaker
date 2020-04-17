@@ -1,5 +1,6 @@
 package com.generationc20.RentMySpeakerRestAPI.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,16 @@ public class Publicacion {
 	private double precio_dia;
 	@OneToMany (targetEntity = ImagenPublicacion.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JoinColumn (name = "id_publicacion", referencedColumnName = "id")
-	private List<ImagenPublicacion> imagenes;
+	private List<ImagenPublicacion> imagenes = new ArrayList();
+	@OneToMany (targetEntity = Solicitud.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	@JoinColumn (name = "id_publicacion", referencedColumnName = "id")
+	private List<Solicitud> solicitudes_recibidas;
+	public List<Solicitud> getSolicitudes_recibidas() {
+		return solicitudes_recibidas;
+	}
+	public void setSolicitudes_recibidas(List<Solicitud> solicitudes_recibidas) {
+		this.solicitudes_recibidas = solicitudes_recibidas;
+	}
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	public Publicacion () {}
@@ -83,6 +93,9 @@ public class Publicacion {
 	}
 	public void setPrecio_dia(double precio_dia) {
 		this.precio_dia = precio_dia;
+	}
+	public void addImagen (ImagenPublicacion img) {
+		this.imagenes.add(img);
 	}
 	public List<ImagenPublicacion> getImagenes() {
 		return imagenes;

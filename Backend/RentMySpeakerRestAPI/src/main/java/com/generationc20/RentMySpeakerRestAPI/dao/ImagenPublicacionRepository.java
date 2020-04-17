@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.generationc20.RentMySpeakerRestAPI.model.ImagenPublicacion;
 
 @Repository
-public interface ImagenPublicacionRepository extends JpaRepository<ImagenPublicacion, Integer> {
+public interface ImagenPublicacionRepository extends JpaRepository <ImagenPublicacion, Integer> {
 
 }
