@@ -187,7 +187,7 @@ body{
 	
 }
 
-.item-legends-container > #tipo {
+.item-legends-container > .tipo {
 	display: inline-block;
 	width: 7em;
 	margin-left: 1em;
@@ -200,7 +200,7 @@ body{
 	
 }
 
-.item-legends-container > #precio-x-dia{
+.item-legends-container > .precio-x-dia{
 	display: inline-block;
 	margin-left: 10.7em;
 	font-size: 1.15em;
@@ -211,7 +211,7 @@ body{
 }
 
 
-.item-legends-container > #titulo {
+.item-legends-container > .titulo{
 	text-align: center;
 	margin-top: .9em;
 	font-size: 1.4em;

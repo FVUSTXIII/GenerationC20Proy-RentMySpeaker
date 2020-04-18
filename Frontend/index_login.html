@@ -45,7 +45,7 @@
     
     <section id="item-area">
 
-        <div class="item">
+       <!-- <div class="item">
             <div class="item-img-container">                
                 <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
             </div>
@@ -95,19 +95,96 @@
                 
             </div>
 
-        </div>
+        </div>-->
     </section>
-    <script>       
+    <script>
+
+        window.onload = () => {
+            last4();
+        }
+        var b = document.getElementById("item-area");
         var a = document.getElementById("submit");
-        a.onclick = function () {
+        var d = document.getElementsByClassName("item");
+        var iterator = 0;
+
+        a.onclick = () => {
             var opc = document.getElementsByName("busqueda");
             for (let i = 0; i < opc.length; i++) {
                 if (opc[i].checked) {
-
                     localStorage.setItem('Tipodearticulo', opc[i].value);
                 }
             }    
         }
+       
+        function makeRequest (url, success, failure) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onload = ()  => {
+                if (xhr.status  === 200) {
+                    success(xhr.responseText);  
+                }
+                else {
+                    failure(xhr.responseText);
+                }
+            }
+            xhr.send();
+        }
+
+        function last4 () {
+            let url = "http://localhost:8080/v1/usuario/publicaciones/ultimaspublicaciones/4";
+            makeRequest(url, (data) => {
+                var json = JSON.parse(data);
+                desdoblar(json);
+            }, () => {
+                console.error("something went wrong");
+            })
+        }
+        function desdoblar(list) {
+            for (l in list) {
+                console.log(list[l]);
+                crearCajaPublicacion(list[l]);
+            }
+        }
+
+        function crearCajaPublicacion (element) {
+            var caja = document.createElement("div");            
+            caja.setAttribute("class", "item");
+            crearImagenContainer(caja, element.imagenes[0].url_img);
+            crearLeyendas(caja, element.tipo_articulo, element.precio_dia, element.titulo_pub);
+            b.appendChild(caja);
+        }
+
+        function crearImagenContainer (e, src) {
+            var caja_imagen = document.createElement("div");
+            var img_el = document.createElement("img");
+            caja_imagen.setAttribute("class", "item-img-container");
+            img_el.setAttribute("class", "item-img");
+            img_el.setAttribute("src", src);
+            caja_imagen.appendChild(img_el);
+            e.appendChild(caja_imagen);
+        }
+
+        function crearLeyendas (e, tipo, precio, titulo) {
+            var legContainer = document.createElement ("div");
+            var legtype = document.createElement("legend");
+            var legprice = document.createElement("legend");
+            var legtitle = document.createElement("legend");
+            legContainer.setAttribute("class", "item-legends-container");
+            legtype.setAttribute("class", "tipo");
+            legprice.setAttribute("class", "precio-x-dia");
+            legtitle.setAttribute("class", "titulo");
+            legtype.innerHTML = tipo;
+            legprice.innerHTML = "$"+precio + " pesos por día";
+            legtitle.innerHTML = titulo;
+            legContainer.appendChild(legtype);
+            legContainer.appendChild(legprice);
+            legContainer.appendChild(legtitle);
+            e.appendChild(legContainer);
+        }
+
+
     </script>
 </body>
 </html>
+
+

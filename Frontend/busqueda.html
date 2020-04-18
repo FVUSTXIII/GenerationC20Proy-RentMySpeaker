@@ -10,15 +10,15 @@
 <body>
     <!--HEADER-->
     <header id ="header-area">
-        <h2 id="arrendador">Arrendador</h2>
-        <h2 id="publicar">Publicar</h2>
+        <h2 id="arrendador"><a href="RentasenProceso.html">Arrendador</a></h2>
+        <h2 id="publicar"><a href="publicacionform.html">Publicar</a></h2>
         <!--LOGO AREA-->
         <div id="header-logo-div">
             <i class="fas fa-compact-disc"></i>
-            <h1 id="header-title">Rent My Speaker</h1>
+            <h1 id="header-title"><a href="index_login.html">Rent My Speaker</a></h1>
         </div>
-        <h2 id="arrendatario">Arrendatario</h2>
-        <i class="fas fa-door-open"></i>
+        <h2 id="arrendatario"><a href="estatus_rentas.html"> Arrendatario</a></h2>
+        <a href="index.html"><i class="fas fa-door-open"></i></a>
     </header>    
         <!--SEARCH AREA-->   
     
@@ -54,7 +54,9 @@
 
         function crearContenedor(elemento) {
             var container = document.createElement ("div");
+            
             container.setAttribute("class", "item");
+            
             createImgInsideContainer(container, elemento.imagenes[0].url_img);
             legendContainer(container, elemento.tipo_articulo, elemento.precio_dia, elemento.titulo_pub);
             a.appendChild(container);
@@ -83,7 +85,7 @@
             legprice.setAttribute("class", "precio-x-dia");
             legtitle.setAttribute("class", "titulo");
             legtype.innerHTML = tipo;
-            legprice.innerHTML = "$"+precio + " p/día";
+            legprice.innerHTML = "$"+precio + " pesos por día";
             legtitle.innerHTML = titulo;
             legContainer.appendChild(legtype);
             legContainer.appendChild(legprice);

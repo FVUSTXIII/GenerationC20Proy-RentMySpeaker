@@ -14,7 +14,7 @@ body{
 
 #header-area{
    box-sizing: border-box;
-   height: 111px;
+   height: 126px;
    width: 100%;
    position: relative;
    font-family: 'Lobster', cursive;
@@ -26,7 +26,7 @@ body{
 	
 }
 
- #header-area > h2, i{
+ #header-area > h2, a{
  	top: 35%;
 	display: inline;
 	font-size: 36px;
@@ -74,8 +74,6 @@ body{
 	text-align: center;
 }
 
-
-
 .item{
 	display: block;
 	width: 44em;
@@ -90,7 +88,6 @@ body{
 	border-radius: 6px;
 	position: relative;
 }
-
 
 
 .item-img-container{
@@ -154,7 +151,25 @@ body{
 	color:#006ad3;
 }
 
+#header-area  h2, a{
+ 	top: 35%;
+	display: inline;
+	font-size: 36px;
+}
 
+ #header-area a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+#header-area a:hover {
+	color: #C7C71A;
+	text-shadow: 0 0 30px #C7C71A, 0px 1px 0 black;
+}
+#header-area  a {
+	right: 5%;
+}
 
 
 

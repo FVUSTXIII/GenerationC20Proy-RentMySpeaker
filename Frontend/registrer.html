@@ -45,7 +45,7 @@
 					f.url_img = "www.url.com/1";
 					var json = JSON.stringify(f);
 					var xhttp = new XMLHttpRequest();
-					xhttp.open("POST", "http://localhost:8080/v1/usuario/test", true);
+					xhttp.open("POST", "http://localhost:8080/v1/usuario/create", true);
 					xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 					xhttp.onload = function() {
 						if(this.readyState == 4 && this.status == 201) {
