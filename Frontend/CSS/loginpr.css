@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+	padding: 0px;
+    margin: 0px;
+}
 body{
-	background: #C71AC7;
+	/*background: #C71AC7;*/
+	background-image: linear-gradient(0deg, #c71ac7 20%,  #711AC7 65%, #c71ac7 94%);
+	color: white;
+	font-family: 'Baloo 2', cursive;
 }
 .lo{
 	width: 100vh;
@@ -19,8 +28,11 @@ body{
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 1rem;
-	border-radius: 3px;
+	border-radius: 20px;
+	font-family: 'Baloo 2', cursive;
+	border-radius: 20px;
 }
+
 .lo button{
 	grid-column:1 /span 2;
 	margin: 2rem auto 0;
@@ -32,5 +44,117 @@ body{
 }
 .lo button:hover{
 	background: none;
-	color: white;
+	/*color: white;*/
+	color: inherit;
+	border-radius: 20px;
+}
+.lo h2{
+	font-family: 'Lobster', cursive;
+	font-size: 50px;
+
+}
+#header-area{
+   box-sizing: border-box;
+   height: 126px;
+   width: 100%;
+   position: relative;
+   font-family: 'Lobster', cursive;
+  
+}
+
+#header-area > *{
+	position: absolute;
+	
+}
+
+ #header-area  h2, a{
+ 	top: 35%;
+	display: inline;
+	font-size: 36px;
+}
+
+ #header-area a {
+	color: inherit;
+	text-decoration: none;
+}
+
+
+#header-area a:hover {
+	color: #C7C71A;
+	text-shadow: 0 0 30px #C7C71A, 0px 1px 0 black;
+}
+
+
+#arrendador{
+	left: 4%;
+}
+
+#publicar{
+	left: 21%;
+}
+
+#arrendatario{
+	right: 13.5%;
+}
+
+#header-area  a {
+	right: 5%;
+}
+
+#header-logo-div{ 
+	 top: 50%;
+	 transform: translateY(-50%);
+	 right: 50%;
+	 transform: translate(50%, -50%);
+	 display: inline-block;
+
+}
+
+#header-logo-div > i{
+	font-size: 55px;
+	margin-right: .15em;
+}
+#header-title{
+	display: inline;
+ 	font-size: 65px;
+}
+#header-area{
+   box-sizing: border-box;
+   height: 126px;
+   width: 100%;
+   position: relative;
+   font-family: 'Lobster', cursive;
+  
+}
+
+#header-area > *{
+	position: absolute;
+	
+}
+
+ #header-area  h2, a{
+ 	top: 35%;
+	display: inline;
+	font-size: 36px;
+}
+
+ #header-area a {
+ 	right: 5%;
+	color: inherit;
+	text-decoration: none;
+}
+
+
+#header-area a:hover {
+	color: #C7C71A;
+	text-shadow: 0 0 30px #C7C71A, 0px 1px 0 black;
+}
+#header-logo-div > i{
+	font-size: 55px;
+	margin-right: .15em;
+}
+
+#header-title{
+	display: inline;
+ 	font-size: 65px;
 }
