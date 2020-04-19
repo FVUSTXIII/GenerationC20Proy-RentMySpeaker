@@ -52,6 +52,7 @@ body {
 
 #publicar{
     left: 21%;
+    text-decoration: underline;
 }
 
 #arrendatario{
@@ -78,6 +79,10 @@ body {
 
 #header-title{
     display: inline;
+    
+}
+
+#header-title a{
     font-size: 65px;
 }
 
