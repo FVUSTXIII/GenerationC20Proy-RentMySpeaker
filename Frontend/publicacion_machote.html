@@ -23,7 +23,7 @@
     
     <main>
         <h1>Titulo de la publicación</h1>
-        <h2 id="precio-x-dia">Precio por día</h2>
+        <h2 id="precio-x-dia">150</h2>
         <section id="img-container">
             <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
             <img class="" src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
@@ -52,22 +52,54 @@
         <form id="precio-total-form" action="" method="post">
             <div id="precio-total-calc">
                 <div class="precio-total-div">
-                    <label class="label-precio-total" for="dias_renta">
+                    <label class="label-precio-total" for="dias_renta" id="">
                       Dias de renta  
                     </label>
-                    <input type="number" id="dias_renta" name="dias_renta" min="1" max="30">
+                    <input type="number" id="dias_renta" name="dias_renta" min="1" max="30" value="1">
                 </div>
                 <div class="precio-total-div">
                     <label class="label-precio-total" for="precio_total">
                         Precio total
                     </label>     
-                        <input type="text" id="precio_total" name="precio_total" readonly>    
+                        <input type="text" id="precio_total" name="precio_total">    
                 </div>
             </div>
 
-            <input type="submit" value="Enviar Solicitud">
+            <input type="submit" value="Enviar Solicitud" id="submit">
         </form>
     </main>
         
 </body>
+<script>
+    var pricePerDay = parseInt(document.getElementById("precio-x-dia").textContent);
+    var daysElement = document.getElementById("dias_renta");
+    var totalPriceText = document.getElementById("precio_total");
+
+    var submitBtn = document.getElementById("submit");
+
+    console.log("price per day: " + pricePerDay);
+    console.log(daysElement);
+    console.log(totalPriceText);
+
+    var days = parseInt(daysElement.value);
+    console.log("days: " + days);
+    var totalPrice = days * pricePerDay;
+    console.log("Initial total price: " + totalPrice);
+    totalPriceText.value = totalPrice;
+
+    daysElement.onkeyup = function (e){
+
+        if(e.keyCode == 13){
+            submitBtn.click();
+        }
+        if(daysElement.value > 365){
+            alert("Por favor introduce menos días");
+            daysElement.value = 365;
+        }
+        console.log(pricePerDay * daysElement.value);
+        totalPrice = pricePerDay * daysElement.value;
+        totalPriceText.value = totalPrice;
+    }
+
+</script>
 </html>
