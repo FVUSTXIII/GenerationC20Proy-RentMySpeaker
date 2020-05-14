@@ -59,6 +59,7 @@
             
             createImgInsideContainer(container, elemento.imagenes[0].url_img);
             legendContainer(container, elemento.tipo_articulo, elemento.precio_dia, elemento.titulo_pub);
+            container.addEventListener("click", function() {goToPost(elemento.id)}, true);
             a.appendChild(container);
         }
 
@@ -91,6 +92,11 @@
             legContainer.appendChild(legprice);
             legContainer.appendChild(legtitle);
             e.appendChild(legContainer);
+        }
+        function goToPost(id) {
+            console.log("this is a test");
+            localStorage.setItem('idPublicacion', id);
+            window.location.replace("publicacion_machote.html");
         }
 
     </script>

@@ -26,16 +26,16 @@
                 <legend>¿Qué estás buscando?</legend>
                 <div id="radio-btn-container">
                     <div class="radio-option">
-                        <input type="radio" name="busqueda" value="0"> <label class="radio-label">Equipo de sonido</label>
+                        <input type="radio" name="busqueda" value="0"><label class="radio-label">Equipo de sonido</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" name="busqueda" value="1"> <label class="radio-label">Instrumentos de cuerda</label>
+                        <input type="radio" name="busqueda" value="1"><label class="radio-label">Percusiones</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" name="busqueda" value="2"><label class="radio-label"> Percusiones</label>
+                        <input type="radio" name="busqueda" value="2"><label class="radio-label">Instrumentos</label>
                     </div>
                     <div class="radio-option">
-                        <input type="radio" name="busqueda" value="3"><label class="radio-label"> Electrónicos</label> 
+                        <input type="radio" name="busqueda" value="3"><label class="radio-label">Electrónicos</label> 
                     </div>
                 </div>
                 <input id="submit"  type="submit" value="¿Qué tienes para mi?">
@@ -45,57 +45,7 @@
     
     <section id="item-area">
 
-       <!-- <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>
-
-        <div class="item">
-            <div class="item-img-container">                
-                <img class="item-img"  src="https://ae01.alicdn.com/kf/HTB1FqVsLVXXXXXDXpXXq6xXFXXXK/Alto-C-16-agujeros-cer-mica-Ocarina-leyenda-de-Zelda-Ocarina-flauta-Woodwind.jpg">
-            </div>
-            <div class="item-legends-container">
-                <legend id="tipo">Instrumento</legend>
-                <legend id="precio-x-dia">$ 400 pesos por dia</legend>
-                <legend id="titulo">Ocarina del tiempo en buen estado</legend>
-                
-            </div>
-
-        </div>-->
+       
     </section>
     <script>
 
@@ -149,6 +99,7 @@
         function crearCajaPublicacion (element) {
             var caja = document.createElement("div");            
             caja.setAttribute("class", "item");
+            caja.addEventListener("click", function() {goToPost(element.id)}, true);
             crearImagenContainer(caja, element.imagenes[0].url_img);
             crearLeyendas(caja, element.tipo_articulo, element.precio_dia, element.titulo_pub);
             b.appendChild(caja);
@@ -181,7 +132,11 @@
             legContainer.appendChild(legtitle);
             e.appendChild(legContainer);
         }
-
+        function goToPost(id) {
+            console.log("this is a test");
+            localStorage.setItem('idPublicacion', id);
+            window.location.replace("publicacion_machote.html");
+        }
 
     </script>
 </body>

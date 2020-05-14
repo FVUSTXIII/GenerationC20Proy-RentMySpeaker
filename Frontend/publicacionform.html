@@ -23,7 +23,7 @@
         
         <div id="form-box">
              <legend id="formulario_publicacion">Realiza tu publicación</legend>
-            <form action="" method="">
+            <form>
 
                 <div>
                     <label for="titulo" class="left">Título de la publicación: </label>
@@ -35,10 +35,10 @@
                     <label for="tipo_articulo" class="left">Tipo de artículo: </label>
                     <select name="tipo_articulo" id="tipo_articulo" class="rigth">
                         <option selected disabled>Tipo de Articulo</option>
-                        <option value="equipo_de_sonido">Equipo de sonido</option>
-                        <option value="instrumento">Instrumento de cuerda</option>
-                        <option value="percusiones">Percusiones</option>
-                        <option value="electronico">Electrónico</option>
+                        <option value=0>Equipo de sonido</option>
+                        <option value=1>Percusiones</option>
+                        <option value=2>Instrumento de cuerda</option>
+                        <option value=3>Electrónico</option>
                     </select>
                 </div>
                
@@ -50,7 +50,7 @@
 
                 <div>
                     <label for="img-file" class="left">Imágenes: </label>
-                    <input type="file" name="img" multiple="multiple" id="img-file" class="right">
+                    <!--<input type="file" name="img" multiple="multiple" id="img-file" class="right">-->
                 </div>
 
                 <div>
@@ -58,10 +58,55 @@
                     <input type="number" name="precio-x-dia" min="1" id="precio-x-dia" class="right">
                 </div>
 
-                <input type="submit" value="Envíar">
+                <input type="button" id="submbtn" value="Enviar">
             </form>
         
          </div>
     </main>
+    <script>
+        var usuario = localStorage.getItem("idUsuario");
+        console.log(usuario);
+        var boton = document.getElementById("submbtn");
+        var e = document.getElementById("tipo_articulo");
+        boton.onclick = () => {
+
+            let url = "http://localhost:8080/v1/usuario/"+usuario+"/createpublicacion";
+            postRequest(url).then((data) => {
+                var parsed = JSON.parse(data);
+                console.log(parsed);
+
+            }).catch((data) => {
+                console.error(data);
+            });
+        }
+        function postRequest(url) {
+        var xhttp = new XMLHttpRequest();
+        return new Promise ((resolve, reject) => {                      
+                        
+            xhttp.onload = () => {
+                if(xhttp.readyState === 4 && xhttp.status === 201) {
+                    console.log(xhttp.responseText);
+                   
+                }
+                 resolve(xhttp.responseText);
+            }
+            xhttp.open('POST' || 'GET', url, true);
+            xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhttp.send(getInfoBody());
+            
+        });
+        }
+        function getInfoBody() {
+            var f = {};
+            f.titulo_pub = document.getElementById("titulo").value;
+            f.tipo_articulo = e.options[e.selectedIndex].value;
+            f.precio_dia = document.getElementById("precio-x-dia").value;
+            f.descripcion = document.getElementById("descripcion").value;
+            f.disponible = 1;
+            var json = JSON.stringify(f);
+            console.log(json);
+            return json;
+        }
+    </script>
 </body>
 </html>

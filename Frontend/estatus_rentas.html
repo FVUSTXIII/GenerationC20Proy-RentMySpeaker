@@ -8,15 +8,15 @@
 </head>
 <body>
 	 <header id ="header-area">
-        <h2 id="arrendador">Arrendador</h2>
-        <h2 id="publicar">Publicar</h2>
+        <h2 id="arrendador"><a href="RentasenProceso.html">Arrendador</a></h2>
+        <h2 id="publicar"><a href="publicacionform.html">Publicar</a></h2>
         <!--LOGO AREA-->
         <div id="header-logo-div">
             <i class="fas fa-compact-disc"></i>
-            <h1 id="header-title">Rent My Speaker</h1>
+            <h1 id="header-title"><a href="index_login.html">Rent My Speaker</a></h1>
         </div>
-        <h2 id="arrendatario">Arrendatario</h2>
-        <i class="fas fa-door-open"></i>
+        <h2 id="arrendatario"><a href="estatus_rentas.html"> Arrendatario</a></h2>
+        <a href="index.html"><i class="fas fa-door-open"></i></a>
     </header>  
 	<nav id="sidebar">
 		<h2>Nombre de usuario</h2>
@@ -26,7 +26,7 @@
 	</nav>
 
 	<main class="administracion_renta">
-	
+		<!--	
 		<div class="contenedor_solicitud">
 			<div id="solicitud_renta" class="sol_status">Renta en espera</div>
 				<div class="sol_lower_body">
@@ -54,15 +54,173 @@
 									<legend class="post_specifics">Precio</legend>
 								</p>
 					</div> 
-					<legend>01-800-Guapo</legend>
-					
-					
+					<legend class="numero">01-800-Guapo</legend>
 				</div>		
 		</div>
-
+		-->
 		
 			
 	</main>	
+<script>
+	var main =document.getElementsByClassName("administracion_renta")[0];
+	var userid = localStorage.getItem("idUsuario");
+	window.onload = () => {
+		console.log("hola :), que tal? ", userid);
+		let url1 = "http://localhost:8080/v1/usuario/"+userid+"/administracionrentaArrendatario/SolicitudesEnEspera";
+		let url2 = "http://localhost:8080/v1/usuario/"+userid+"/administracionDeRentaArrendatario/rentasConfirmadas";
+		makeRequest(url1).then((data) => {
+			var a = JSON.parse(data);
+			containerMaker(a);
+			makeRequest(url2).then((inner_data) => {
+				var b = JSON.parse(inner_data);
+				console.log(b);
+				containerMaker(b);
 
+			}).catch((inner_data) => {
+				console.error(inner_data);
+			});
+		}).catch((data) => {
+			console.error(data);
+		});
+	}
+	function makeRequest (url) {
+            return new Promise((resolve, reject) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onload = ()  => {
+                if (xhr.status  === 200) {
+                    resolve(xhr.responseText);  
+                }
+                else {
+                    reject(xhr.responseText);
+                }
+            };
+            xhr.send();
+            });            
+    }
+    function containerMaker(e) {
+    	for (a in e) {	
+    		if(e[a].estadoSolicitud) {
+    			console.log("Esto es una solicitud: ");
+    			console.table(e[a]);
+    			crearSolicitudContainer(e[a]);
+    			//crearSolicitudContainer(e[a]);
+    		}
+    		else if (e[a].estado_renta) {
+    			console.log("Esto es una renta: ");
+    			console.table(e[a]);
+    			crearRentaContainer(e[a]);
+    			//crearRentaContiner(e[a]);
+    		}
+    		else {
+    			console.log("esto es algo no validado aqui");
+    		}
+    	}
+    }
+    function crearSolicitudContainer(x) {
+    	var cont = document.createElement("div");
+    	cont.setAttribute("class", "contenedor_solicitud");
+    	estadoSolicitud(x, cont);
+    	lower_body_container(x, cont);
+    	main.appendChild(cont);
+
+    }
+    function crearRentaContainer(x) {
+    	var cont = document.createElement("div");
+    	cont.setAttribute("class", "contenedor_solicitud");
+    	estado_renta(x, cont);
+    	lower_body_container(x, cont);
+    	main.appendChild(cont);
+    }
+    function estadoSolicitud(e, c) {
+    	var cont = document.createElement("div");
+    	cont.classList.add("sol_status", "solicitud_renta");
+    	cont.innerHTML = "Renta en espera";
+    	c.appendChild(cont);
+    }
+    function estado_renta(e,c) {
+    	var cont = document.createElement("div");
+    	cont.classList.add("sol_status", "renta_espera");
+    	cont.innerHTML = "Renta en espera";
+    	c.appendChild(cont);
+    }
+    function lower_body_container(e, c) {
+    	if(e.estadoSolicitud) {
+    		var sol_lower_body = document.createElement("div");
+    		sol_lower_body.setAttribute("class", "sol_lower_body");
+    		var post_data_con = document.createElement("div");
+    		post_data_con.setAttribute("class", "post_data_con");
+    		postContents(e, post_data_con);
+    		sol_lower_body.appendChild(post_data_con);
+    		c.appendChild(sol_lower_body);
+    	}
+    	else if(e.estado_renta) {
+    		var sol_lower_body = document.createElement("div");
+    		sol_lower_body.setAttribute("class", "sol_lower_body");
+    		var post_data_con = document.createElement("div");
+    		var numero_tel = document.createElement("legend");
+    		numero_tel.setAttribute("class", "numero");
+    		numero_tel.innerHTML = e.telefono;
+    		post_data_con.setAttribute("class", "post_data_con");
+    		postContents(e, post_data_con);
+    		sol_lower_body.appendChild(post_data_con);
+    		sol_lower_body.appendChild(numero_tel);
+    		c.appendChild(sol_lower_body);
+     	}	
+    }
+    function postContents(e, c) {
+    	if(e.estadoSolicitud) {
+    		var post_photo = document.createElement("img");
+	    	var post_specifics_con = document.createElement("div");
+	    	post_specifics_con.setAttribute("class", "post_specifics_con");
+	    	post_photo.setAttribute("class", "post_photo");
+	    	post_photo.setAttribute("src", e.url_img);
+	    	postContentvalues(e, post_specifics_con);	
+	    	c.appendChild(post_photo);
+	    	c.appendChild(post_specifics_con);
+    	}
+    	else if(e.estado_renta) {
+    		var post_photo = document.createElement("img");
+	    	var post_specifics_con = document.createElement("div");
+	    	post_specifics_con.setAttribute("class", "post_specifics_con");
+	    	post_photo.setAttribute("class", "post_photo");
+	    	post_photo.setAttribute("src", e.url_img_publicacion);
+	    	postContentvalues(e, post_specifics_con);	
+	    	c.appendChild(post_photo);
+	    	c.appendChild(post_specifics_con);
+    	}
+    }
+    function postContentvalues(e, c) {
+    	if(e.estadoSolicitud) {
+    		var p_s_titulo = document.createElement("legend");
+	    	var p_s_tipo = document.createElement("legend");
+	    	var p_s_precio = document.createElement("legend");
+	    	p_s_titulo.setAttribute("class","post_specifics");
+	    	p_s_tipo.setAttribute("class","post_specifics");
+	    	p_s_precio.setAttribute("class","post_specifics");
+	    	p_s_titulo.innerHTML = e.titulo_publicacion;
+			p_s_tipo.innerHTML = e.tipo_articulo_p;
+			p_s_precio.innerHTML = e.precio_dia;
+	    	c.appendChild(p_s_titulo);
+	    	c.appendChild(p_s_tipo);
+	    	c.appendChild(p_s_precio);
+    	}
+    	else if (e.estado_renta) {
+    		var date = JSON.stringify(e.fecha_renta).split('T');
+    		var p_s_titulo = document.createElement("legend");
+	    	var p_s_tipo = document.createElement("legend");
+	    	var p_s_precio = document.createElement("legend");
+	    	p_s_titulo.setAttribute("class","post_specifics");
+	    	p_s_tipo.setAttribute("class","post_specifics");
+	    	p_s_precio.setAttribute("class","post_specifics");
+	    	p_s_titulo.innerHTML = e.titulo_publicacion.substr(0,15) + "...";
+			p_s_tipo.innerHTML = date[0].split('"')[1];
+			p_s_precio.innerHTML = e.precio_dia;
+	    	c.appendChild(p_s_titulo);
+	    	c.appendChild(p_s_tipo);
+	    	c.appendChild(p_s_precio);
+    	}
+    }
+</script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 			<h2>Regístrate.</h2>
 			<!--<form target="_blank" enctype="multipart/form-data" action="http://localhost:8080/v1/usuario/create" method="post" name="registerform">
 			-->
-				<form target="_blank" enctype="multipart/form-data" name="registerform">
+			<form>
 				<label for="nombre">Nombre</label>
 				<input type="text" name="nombre" placeholder="&#128100;">
 				<label for="apellidos">Apellido</label>
@@ -25,39 +25,60 @@
 				<label for="perfil">Perfil</label>
 				<!--<input type="file" name="url_imagen" list="items" placeholder="&#128100;">-->
 			
-				<button type="submit" id="botonenviar">Enviar</button>
+				<button type ="button" id="botonenviar">Enviar</button>
 
 			</form>
+		</div>
+		<script type="text/javascript">
+			var a = document.getElementById("botonenviar");
+			a.onclick = () => {
+				sendInfo();
+			};
 
-			<script>
-				var a = document.getElementById("botonenviar");
-				a.addEventListener("click", sendInfo);
+			function sendInfo() {
+				console.log("hello?");
+				postRequest('http://localhost:8080/v1/usuario/create').then((data) => {
+						console.log("aqui deberia de pasar algo...");
+						var parsed = JSON.parse(data);
+						setItemInLocalStorage("idUsuario", parsed.id);
+						window.location.replace("index_login.html");
+					}).catch((error) => {
+						console.error('Something went wrong', error);
+					});
+			}
 
-				function sendInfo() {
+			function postRequest(url) {
+				var xhttp = new XMLHttpRequest();
+				return new Promise ((resolve, reject) => {						
 					
-					var f = {};
-					/*f.append("nombre", document.getElementsByName("nombre")[0].value);*/
-					f.nombre = document.getElementsByName("nombre")[0].value;
-					f.apellidos = document.getElementsByName("apellidos")[0].value;
-					f.numero_telefonico = document.getElementsByName("numero_telefonico")[0].value;
-					f.correo = document.getElementsByName("correo")[0].value;
-					f.contra = document.getElementsByName("contra")[0].value;
-					f.url_img = "www.url.com/1";
-					var json = JSON.stringify(f);
-					var xhttp = new XMLHttpRequest();
-					xhttp.open("POST", "http://localhost:8080/v1/usuario/create", true);
-					xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-					xhttp.onload = function() {
-						if(this.readyState == 4 && this.status == 201) {
-							var exito = JSON.parse(this.responseText);
-							localStorage.setItem('idUsuario', exito.id);
-							window.location.href = "index_login.html";
+					xhttp.onload = () => {
+						if(xhttp.readyState === 4 && xhttp.status === 201) {
+							console.log(xhttp.responseText);
+							resolve(xhttp.responseText);
 						}
 					}
-					xhttp.send(json);
-				}
-
-			</script>
-		</div>
+					xhttp.open('POST' || 'GET', url, true);
+					xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+					xhttp.send(getBodyFormInfo());
+					console.log("sent");
+				});
+			}
+			 
+			function getBodyFormInfo() {
+				var f = {};
+				f.nombre = document.getElementsByName("nombre")[0].value;
+				f.apellidos = document.getElementsByName("apellidos")[0].value;
+				f.numero_telefonico = document.getElementsByName("numero_telefonico")[0].value;
+				f.correo = document.getElementsByName("correo")[0].value;
+				f.contra = document.getElementsByName("contra")[0].value;
+				f.url_img = "www.url.com/1";
+				var json = JSON.stringify(f);
+				console.log(json);
+				return json;
+			}
+			function setItemInLocalStorage(key, item) {
+				localStorage.setItem(key, item);
+			}
+	</script>
 	</body>
-</html>
+</html> 
